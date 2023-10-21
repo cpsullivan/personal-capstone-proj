@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'arts',
+    'correspondence',
 ]
 
 MIDDLEWARE = [
@@ -78,11 +79,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("DB_NAME", "postgres"),
+        "NAME": os.getenv("DB_NAME", "backend"),
         "USER": os.getenv("DB_USER", "postgres"),
-        "PASSWORD": os.getenv("DB_PASS", "mysecretpassword"),
-        "HOST": "localhost",  
-        "PORT": 5454, 
+        "PASSWORD": os.getenv("DB_PASS", "postgres"),
+        "HOST": "db",  
+        "PORT": 5432, 
     }
 }
 
