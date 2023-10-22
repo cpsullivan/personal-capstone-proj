@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'arts',
-    'correspondence',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +80,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": os.getenv("DB_NAME", "backend"),
         "USER": os.getenv("DB_USER", "postgres"),
-        "PASSWORD": os.getenv("DB_PASS", "postgres"),
+        "PASSWORD": os.getenv("DB_PASS", "mysecretpassword"),
         "HOST": "db",  
         "PORT": 5432, 
     }
@@ -132,5 +131,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
 #AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID") 
 #AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY") 
-#AWS_STORAGE_BUCKET_NAME = "henryishangingout"
+#AWS_STORAGE_BUCKET_NAME = "arts-documents"
 #AWS_QUERYSTRING_AUTH = False

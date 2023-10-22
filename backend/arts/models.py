@@ -8,6 +8,7 @@ class ActionRequest(models.Model):
     created_on = models.DateTimeField(default=timezone.now)
     action = models.CharField(max_length=10)
     due_date = models.DateTimeField(default=timezone.now)
+    comments = models.TextField(blank=True, default="")
     documents = models.FileField(upload_to="documents/", blank=True, null=True)
 
     def __str__(self):
