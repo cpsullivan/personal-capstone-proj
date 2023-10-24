@@ -2,10 +2,16 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
 from .serializers import ActionRequestSerializer
-from .models import ActionRequest
+from .models import ActionRequest, add_business_days
+from django.http import JsonResponse
+from django.utils import timezone
 
 
 class ActionRequestView(APIView):
+
+    def get_due_date(request):
+        due_date = add_business_days(timezone.now(), 10)
+        return JsonResponse({'due_date': due_date})
 
     def get(self, request, pk=None):
         if pk:  

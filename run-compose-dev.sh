@@ -11,9 +11,9 @@ export POSTGRES_PASSWORD=mysecretpassword
 export AWS_ACCESS_KEY_ID=$1
 export AWS_SECRET_ACCESS_KEY=$2
 
-docker-compose -f docker-compose.dev.yml up -d --build
-
+#
+COMPOSE_DOCKER_CLI_BUILD=0 DOCKER_BUILDKIT=0 docker-compose -f docker-compose.dev.yml up -d --build
 # make sure the postgres container is ready, then run migrations
 sleep 10 
-docker exec docker-compose-app-api-1  python /src/manage.py makemigrations 
-docker exec docker-compose-app-api-1  python /src/manage.py migrate
+docker exec personal-capstone-proj-api-1  python /src/manage.py makemigrations 
+docker exec personal-capstone-proj-api-1  python /src/manage.py migrate
