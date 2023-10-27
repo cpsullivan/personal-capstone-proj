@@ -1,16 +1,22 @@
 from rest_framework import serializers
+#from django.utils import timezone
+#from datetime import date
 from .models import ActionRequest
 
 
 class ActionRequestSerializer(serializers.Serializer):
+    #class Meta:
+    #   model = ActionRequest
+    #   fields = '__all__'
+    #   date_format = '%Y-%m-%d'
+    
     action_request_title = serializers.CharField(max_length=255)
-    created_on = serializers.DateTimeField()
+    created_on = serializers.CharField(max_length=20)
     action = serializers.CharField()
-    due_date = serializers.DateTimeField()
+    due_date = serializers.CharField(max_length=20)
     comments = serializers.CharField()
     id = serializers.IntegerField(read_only=True)
     documents = serializers.FileField()
-    
 
     def create(self, validated_data):
         return ActionRequest.objects.create(**validated_data)
