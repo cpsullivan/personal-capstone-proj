@@ -1,0 +1,35 @@
+[
+    {
+        "model": "backend/arts/models.py.actionrequest",
+        "pk": 1,
+        "fields": {
+            "action_request_title": "Wondering about hamsters in her front lawn",
+            "created_on": "2023-10-26",
+            "action": "Letter for the minister",
+            "due_date": "2023-11-05",
+            "comments": "Template uploaded to file"
+        }
+    },
+    {
+        "model": "backend/arts/models.py.actionrequest",
+        "pk": 2,
+        "fields": {
+            "action_request_title": "Questions about renewables",
+            "created_on": "2023-10-25",
+            "action": "Memorandum for the deputy minister",
+            "due_date": "2023-11-10",
+            "comments": "None"
+        }
+    },
+    {
+        "model": "backend/arts/models.py.actionrequest",
+        "pk": 3,
+        "fields": {
+            "action_request_title": "Travel request to Orlando",
+            "created_on": "2023-10-18",
+            "action": "Briefing for the executive director",
+            "due_date": "2023-10-31",
+            "comments": "None"
+        }
+    }
+]

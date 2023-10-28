@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom"
 import './CreateARs.css'
 
@@ -58,33 +58,51 @@ function CreateActionRequest() {
         }
     }
 
+    // When component is mounted, fetch the due date
+    useEffect(() => {
+        async function fetchDueDate() {
+            const base_url = import.meta.env.VITE_BASE_URL;
+            const url = `http://${base_url}/api/due_date/`;
+            const response = await fetch(url);
+            const data = await response.json();
+
+            if (response.ok) {
+                setDueDate(data.due_date.split('T')[0]);
+            } else {
+                console.error('Failed to fetch due date:', data);
+                // Handle the error as needed
+            }
+        }
+        fetchDueDate();
+    }, []);  // Empty dependency array means this effect will run once, similar to componentDidMount
+
     return(
         <>
             <h2>Create Action Request</h2>
             {errors && <h4>{JSON.stringify(errors)}</h4>}
             <div>
                 <label htmlFor='actionRequestTitle'>Action Request Title:</label>
-                <input value={actionRequestTitle} name='actionRequestTitle' onChange={handleActionRequestTitleChange}></input>
+                <input type='text' value={actionRequestTitle} name='actionRequestTitle' onChange={handleActionRequestTitleChange}></input>
             </div>
             <div>
                 <label htmlFor='createdOn'>Created On:</label>
-                <input value={createdOn} name='createdOn' onChange={handleCreatedOn}></input>
+                <input type='date' value={createdOn} name='createdOn' onChange={handleCreatedOn}></input>
             </div>
             <div>
                 <label htmlFor='action'>Action:</label>
-                <input value={action} name='action' onChange={handleActionChange}></input>
+                <input type='text' value={action} name='action' onChange={handleActionChange}></input>
             </div>
             <div>
                 <label htmlFor='due_date'>Due Date:</label>
-                <input value={dueDate} name='due_date' onChange={handleDueDateChange}></input>
+                <input type='date' value={dueDate} name='due_date' onChange={handleDueDateChange}></input>
             </div>
             <div>
                 <label htmlFor='comments'>Comments:</label>
-                <input value={comments} name='comments' onChange={handleCommentsChange}></input>
+                <input type='text' value={comments} name='comments' onChange={handleCommentsChange}></input>
             </div>
             <div>
                 <label htmlFor='documents'>Documents:</label>
-                <input value={documents} name='documents' onChange={handleDocumentsChange}></input>
+                <input type='file' name='documents' onChange={handleDocumentsChange}></input>
             </div>
             <div>
                 <button onClick={handleSubmit}>Submit</button>

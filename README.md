@@ -16,3 +16,7 @@ Refer to the "Project Flow" diagram. The application terminates at the "load pro
 
 The "User Flow" diagram below shows the same process from the context of the user's experience.
 ![View of the user flow for this project's application](assets/UserFlow.png)
+
+## Here's a picture
+Here's a picture so that I can push changes to the 'inspect' branch of the personal-capstone-proj repository.
+![Image of art installation at the Federal Plaza in Edmonton, Alberta, Canada](assets/FederalPlaza_1_P7031188 copy.jpg)

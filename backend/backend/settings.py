@@ -39,6 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'arts',
+    'arts_users',
+    'correspondence',
+    'correspondent',
+    'correspondent_address',
+    'organization_element',
+    'respsonse_documents',
+    'routing',
+    'templates',
 ]
 
 MIDDLEWARE = [
@@ -117,6 +125,9 @@ USE_I18N = True
 
 USE_TZ = True
 
+#DATE_INPUT_FORMATS = ['%Y-%m-%d']
+
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -128,8 +139,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
-#AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID") 
-#AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY") 
-#AWS_STORAGE_BUCKET_NAME = "arts-documents"
-#AWS_QUERYSTRING_AUTH = False
+DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID") 
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY") 
+AWS_STORAGE_BUCKET_NAME = "arts-documents"
+AWS_QUERYSTRING_AUTH = False

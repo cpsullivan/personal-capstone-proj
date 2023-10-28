@@ -1,8 +1,8 @@
 import './App.css';
-import { HashRouter, Routes, Route, Link } from 'react-router-dom'
-import ListARs from './components/ListActionRequests'
-import CreateAR from './components/CreateActionRequest'
-import './App.css'
+import { HashRouter, Routes, Route, Link } from 'react-router-dom';
+import ListActionRequests from './components/ListARs';
+import CreateActionRequest from './components/CreateARs';
+
 
 function App() {
 
