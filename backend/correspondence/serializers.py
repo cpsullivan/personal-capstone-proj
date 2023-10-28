@@ -3,9 +3,9 @@ from .models import Correspondence
 
 
 class CorrespondenceSerializer(serializers.Serializer):
-    correspondence_type = serializers.CharField(read_only=True)
-    correspondence_date = serializers.DateTimeField(read_only=True)
     id = serializers.IntegerField(read_only=True)
+    correspondence_type = serializers.CharField(max_length=3)
+    correspondence_date = serializers.DateTimeField()
     correspondence_document = serializers.FileField()
     
 
@@ -14,9 +14,9 @@ class CorrespondenceSerializer(serializers.Serializer):
 
 
     def update(self, instance, validated_data):
-        instance.correspondence_type = validated_data.get('correspondence_type', instance.correspondence_type)
-        instance.action = validated_data.get('action', instance.action)
         instance.id = validated_data.get('id', instance.id)
+        instance.correspondence_type = validated_data.get('correspondence_type', instance.correspondence_type)
+        instance.correspondence_date = validated_data.get('correspondence_date', instance.correspondence_date)
         instance.correspondence_document = validated_data.get('correspondence_document', instance.correspondence_document)
         instance.save()
         return instance

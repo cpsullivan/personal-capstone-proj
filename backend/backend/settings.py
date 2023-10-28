@@ -39,6 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'arts',
+    'arts_users',
+    'correspondence',
+    'correspondent',
+    'correspondent_address',
+    'organization_element',
+    'respsonse_documents',
+    'routing',
+    'templates',
 ]
 
 MIDDLEWARE = [
